@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const paletteContainer = document.getElementById('palette-container');
     const newGameBtn = document.getElementById('new-game-btn');
     const difficultySelect = document.getElementById('difficulty');
+    const loadingContainer = document.getElementById('loading-container');
     const validateBtn = document.getElementById('validate-btn');
     const autofillPenBtn = document.getElementById('autofill-pen-btn');
     const togglePenModeBtn = document.getElementById('toggle-pen-mode-btn');
@@ -51,11 +52,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function newGame() {
-        const difficulty = difficultySelect.value;
-        board = generateSudoku();
-        solution = JSON.parse(JSON.stringify(board)); // Deep copy
-        solveSudoku(solution);
-        renderBoard();
+        loadingContainer.style.display = 'block';
+        gridContainer.style.display = 'none';
+
+        setTimeout(() => {
+            const difficulty = difficultySelect.value;
+            board = generateSudoku();
+            solution = JSON.parse(JSON.stringify(board)); // Deep copy
+            solveSudoku(solution);
+            renderBoard();
+            
+            loadingContainer.style.display = 'none';
+            gridContainer.style.display = 'grid';
+        }, 0);
     }
 
     function generateSudoku() {
@@ -323,6 +332,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     }
-
+    
     init();
 });
+

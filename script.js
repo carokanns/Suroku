@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const autofillPenBtn = document.getElementById('autofill-pen-btn');
     const togglePenModeBtn = document.getElementById('toggle-pen-mode-btn');
 
-    let board = [];
+    let board = []; 
     let solution = [];
     let selectedCell = null;
     let selectedNumber = null;

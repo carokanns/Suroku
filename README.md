@@ -1,2 +1,2 @@
 # Suroku
-Testing a sudoku puzzle builder
+Testing a **Sudoku** puzzle builder
